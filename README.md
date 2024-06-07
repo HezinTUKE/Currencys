@@ -1,4 +1,4 @@
-# Navod :
+# Návod :
 
 **Zadajte svoje dáta (napr. heslo, login, atď) do configs/postgresql.yaml** . <br />
 
