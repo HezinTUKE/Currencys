@@ -3,14 +3,17 @@ from app.routes import setup_routes
 from app.middlewares import handle_error
 from settings import config, pg_context
 
-app = web.Application(
-    middlewares=[
-        handle_error
-    ]
-)
 
-app['config'] = config
-app.cleanup_ctx.append(pg_context)
+async def init():
+    app = web.Application(
+        middlewares=[
+            handle_error
+        ]
+    )
 
-setup_routes(app)
-web.run_app(app)
+    app['config'] = config
+    app.cleanup_ctx.append(pg_context)
+
+    setup_routes(app)
+
+    return app

@@ -4,4 +4,4 @@ echo -e "creating database models"
 python3 init_db.py
 echo -e "running scrapper"
 python3 scrapper.py
-python3 main.py
+gunicorn -c configs/gunicorn_conf.py main:init
